@@ -12,9 +12,10 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./app/sql/init.sql:/docker-entrypoint-initdb.d/init.sql  # mount path inside container
 
   app:
-    build: .
+    build: ./app
     container_name: capstone-app
     ports:
       - "3000:3000"
