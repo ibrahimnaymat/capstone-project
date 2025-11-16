@@ -39,13 +39,12 @@ jobs:
       - name: Build Docker Image
         run: docker build -t ${{ secrets.DOCKERHUB_USER }}/capstone:${{ github.sha }} ./app
 
-      # Install Trivy for security scanning
+      # Install Trivy for security scanning (fixed)
       - name: Install Trivy
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y wget
-          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.43.1_Linux-64bit.deb -O trivy.deb
-          sudo dpkg -i trivy.deb || true
+          sudo apt-get install -y curl
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh
 
       # Scan Docker image
       - name: Security scan
