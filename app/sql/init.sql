@@ -8,4 +8,5 @@ INSERT INTO users (name, email) VALUES
 ('Alice','alice@example.com'),
 ('Bob','bob@example.com'),
 ('Naymat Ibrahim','naymat@example.com'),
+('Abideen Muhammed','abideen@example.com'),
 ('Abideen Muhammed','abideen@example.com');
